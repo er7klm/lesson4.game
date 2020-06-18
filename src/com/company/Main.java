@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Main {
 
-    public static int bossHealth = 700;
+    public static int bossHealth = 1000;
     public static int bossDamage = 50;
     public static String bossDefenceType = "";
     public static int[] heroesHealth = {260, 250, 270, 280};
     public static int[] heroesDamage = {20, 15, 25};
     public static int healersHeal = 30;
-    public static String healerHealType = "Heal";
+    public static String[] heroesType = {"Warrior", "Magic", "Kinetic", "Healer"};
     public static String[] heroesAttackType = {"Physical",
             "Magical", "Kinetic"};
 
@@ -81,31 +81,10 @@ public class Main {
     public static void healHeroes() {
         for (int i = 0; i < heroesHealth.length; i++) {
             if (heroesHealth[3] > 0) {
-                if (heroesHealth[0] <= 100) //&& heroesHealth[1] <= 100 && heroesHealth[2] <= 100)
-                {
-                    heroesHealth[0] = heroesHealth[0] + healersHeal;
-                    System.out.println("Warrior got Heal + " + healersHeal);
+                if (heroesHealth[i] <= 100) {
+                    heroesHealth[i] = heroesHealth[i] + healersHeal;
+                    System.out.println(heroesType[i] + " got Heal " + healersHeal);
                     break;
-                }
-                if (heroesHealth[1] <= 100) //&& heroesHealth[1] <= 100 && heroesHealth[2] <= 100)
-                {
-                    heroesHealth[1] = heroesHealth[1] + healersHeal;
-                    System.out.println("Magic got Heal + " + healersHeal);
-                    break;
-                }
-                if (heroesHealth[2] <= 100) //&& heroesHealth[1] <= 100 && heroesHealth[2] <= 100)
-                {
-                    heroesHealth[2] = heroesHealth[2] + healersHeal;
-                    System.out.println("Kinetic got Heal + " + healersHeal);
-                    break;
-                }
-                if (heroesHealth[3] <= 100) //&& heroesHealth[1] <= 100 && heroesHealth[2] <= 100)
-                {
-                    heroesHealth[3] = heroesHealth[3] + healersHeal;
-                    System.out.println("Kinetic got Heal + " + healersHeal);
-                    break;
-                } else {
-                    heroesHealth[i] = heroesHealth[i] - bossDamage;
                 }
             }
         }
